@@ -13,7 +13,7 @@ body {
     padding: 0;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
-    line-height: 2em;
+    line-height: 1em;
     overflow-x: hidden;
 }
 
@@ -42,10 +42,11 @@ h1, h2, p, i, address, .tm-text-white { }
     max-width: 970px;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 5px 15px;
+    padding: 60px 5px 5px 5px;
+    
 }
 
-.tm-site-header { height: 470px; }
+.tm-site-header { height: 470px; padding:10px;}
 
 .tm-flex-center {
     display: flex;
@@ -226,7 +227,32 @@ section:hover{
 }
 
 .header-main{
-	height: 50px;
-	text-align: center;
-	color: red;
+    padding:10px 15px 15px 15px;
+	height: 58px;
+    background:grey;
+    position: fixed;
+    top:0px;
+    right:0px;
+    left:0px;
+    z-index:999;
 }
+.main-h{
+ font-size:25px;
+ font-weight:bold;
+ padding:5px;
+ margin: 0px;
+ text-align:center;
+ color:#FFC300;
+}
+.brand-name{
+    color:#3b5998;
+}
+.blink_me {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
