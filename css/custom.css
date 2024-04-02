@@ -287,6 +287,7 @@ row{margin-right: 0px;
     width: 90%;
     
 	}
+.list-points{line-height:25px;}
 .line-desc{margin-bottom:5px;}
 .go-cart{
 	height:30px;
@@ -294,7 +295,7 @@ row{margin-right: 0px;
 }
 .logo-text{margin-top:5px;}
 .main-heading{
-	margin-top:5px;
+	margin-top:10px;
 	color: darkslateblue;
 	text-align: center;
 }
@@ -312,5 +313,22 @@ row{margin-right: 0px;
     #logo  {
           display:none !important;
  }
+}
+
+.cookie-consent {
+    width: 100%;
+    flex-wrap: wrap;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #5C80A4;
+    background-color: #EAECEE;
+    box-shadow: 0px 0px 8px 0px;
+    padding: 4px;
+    z-index: 9999;
+    display: block;
+	text-align: center;
+	font-size:14px;
 }
 
