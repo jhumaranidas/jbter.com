@@ -229,7 +229,11 @@ section:hover{
 
 
 li{list-style-type:none}
-.main-prod-head{height:20px;color:#F58227;margin:15px 0px 5px 0px;font-style:italic;}
+.main-prod-head{
+    height:20px;
+    color:#007185;
+    margin:25px 0px 10px 0px;font-style:italic;
+}
 .right{float:right;}
 .left{float:left;}
 
@@ -288,7 +292,12 @@ row{margin-right: 0px;
     
 	}
 .list-points{line-height:25px;}
-.line-desc{margin-bottom:5px;}
+.line-desc{
+    margin-bottom:5px;
+    font-weight: normal;
+    font-style: normal;
+    font-size:15px;
+}
 .go-cart{
 	height:30px;
 	border:2px solid red;
@@ -296,8 +305,17 @@ row{margin-right: 0px;
 .logo-text{margin-top:5px;}
 .main-heading{
 	margin-top:10px;
-	color: darkslateblue;
+	color: #99D9EA;
 	text-align: center;
+}
+.main-heading-link{
+    margin-top:15px;
+	color: #007185;
+	text-align: right;
+}
+.main-heading-link a{
+    color: #99D9EA !important;
+    text-decoration: underline;
 }
 .view-amaz{height:30px;}
 .view-link{margin-top:10px;}
@@ -330,5 +348,11 @@ row{margin-right: 0px;
     display: block;
 	text-align: center;
 	font-size:14px;
+}
+
+.index-link{
+    height:40px;
+    margin:5px;
+    padding:5px;
 }
 
