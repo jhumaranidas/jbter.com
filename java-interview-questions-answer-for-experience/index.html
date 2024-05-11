@@ -1421,6 +1421,129 @@ One
 
                 </p>
 
+
+
+                <h2><i class="arrow right"></i>What is ConcurrentHashMap in Java?</h2>
+                <p>
+                    ConcurrentHashMap is an enhancement of HashMap. It helps to improve the 
+                    performance with threads in an application. ConcurrentHashMap is a thread-safe, 
+                    multiple threads can access it simultaneously without any synchronization issues. 
+                    ConcurrentHashMap introduced in JDK 1.5 and available in the java.util.concurrent package.
+                    <ol>
+                        <li>The structure for ConcurrentHashMap is Hashtable.</li>
+                        <li>ConcurrentHashMap class is thread-safe.</li>
+                        <li>Default size of the ConcurrentHashMap is 16.</li>
+                        <li>You can not put the null object as key or value in the ConcurrentHashMap.</li>                      
+                        <li>Any number of threads can access at a time for read read operation.</li>
+                        <li>ConcurrentHashMap divides object into a number of segments and lock 
+                            the particular segment in the case of updating. 
+                        </li>
+                    </ol>
+                </p>
+                <p>
+                    Example of ConcurrentHashMap in Java
+<pre><code><span class="code-comment">//Importing required classes</span>
+import java.util.concurrent.ConcurrentHashMap;<b class="blue">
+public class ConcurrentHashMapExample {
+    public static void main(String args[]){</b>
+        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<</code><code>String, Integer>();
+        map.put("A1", 100);
+        map.put("A2", 200);
+        map.put("A3", 300);
+
+        System.out.println("Map size is " + map.size());
+
+        int valueA1 = map.get("A1");
+        System.out.println("Value of A1 is " + valueA1);
+
+        map.remove("A3");
+        System.out.println("Map size " + map.size());
+    <b class="blue"> 
+    }
+}</b>
+
+Output:
+Map size is 3
+Value of A1 is 100
+Map size 2</code>
+</pre>
+
+                </p>
+
+                <h2><i class="arrow right"></i>Explain Internal Working of HashMap in Java?</h2>
+                <p>
+                    HashMap is introduced in 1.2. HashMap in Java stores the object in Key - Value pairs, 
+                    the objects are accessible by key or an index.  If you try to insert the duplicate 
+                    key, it will replace the value of old with new value of that key.            
+                </p>
+                <p>
+                    HashMap contains an array of Nodes and Node is a class with below attributes.
+                    <ol>
+                        <li class="num-list">int hash</li>
+                        <li class="num-list">K key</li>
+                        <li class="num-list">V value</li>
+                        <li class="num-list">Node next</li>
+                    </ol>
+                    <img id="kafka-cluster" src="../img/interview/Node class.PNG" title="Node Class" style="width:30%;"><div class="image-text" style="width:100%;text-align: center;">Node Class</div></image>        
+                </p>
+                <p>Hashmap uses the <b>Hashing</b> process to store the objects in a <b>Bucket</b>.
+                     First, you need to understand about the <b>Hashing</b> process and <b>Bucket</b>.
+                
+                </p>
+               
+                <p>
+                   
+                     
+                    <!--of the element inside the map. To get the bucket number of the object hashCode() method is used.
+                    The hashCode() returns an integer value of memory reference of the object and that is used 
+                    to store object in a bucket in the Hashmap.-->
+                </p>
+                <h3>Hashing Process</h3>
+                <p>
+                    Hashing is a process of converting an object into integer form by using the method hashCode().
+                    <ol>
+                        <li class="num-list"><h3>Buckets</h3></li>
+                        <dd><p>Array of the node is called buckets. Each node has a data structure like a LinkedList. 
+                            More than one can be in the same bucket.
+                             The every object refer to a <b>node</b> to store in the HashMap and each nodes refer to the buckets.
+                             So, basically buckets is the container of nodes.</p></dd>
+                       
+                        <li class="num-list">hashCode() method - </li>
+                            <dd><p>This is the method of the object class. 
+                            It returns an integer value of memory reference of the object. 
+                            The hashCode() returns an integer value of memory reference of the object and that is used 
+                            to store object in a bucket in the Hashmap.</p></dd>
+
+                           
+                           </li>
+                        <li class="num-list">equals() method - </li>
+                           <dd><p>When we put an object into HashMap, suppose hascode() method returned a value that is already
+                           exist inthe bucket in the HashMap then equals() method comes in the process to compares the Key 
+                           with existing object's key, whether they are equal or not. 
+                           If equal then simply HashMap replace the value of old with new value with the same key.
+                           Otherwise, both objects will be stored in the same node sing LinkedList data structure 
+                           and next will be a pointer to another node.</p></dd>
+                        
+                        <li class="num-list">Calculating Index - </li>
+                           <dd><p>
+                            Index = hashcode(Key) & (n-1). Interally uses bitwise AND operator to convert binary to decemal. 
+                            <br>
+                            Example:<br>
+                            Suppose, binary value of hashcode(Key) & (n-1) is 1010 <br>
+                            1. length of 1010=4<br>
+                            2. decimal = 1*(2*2*2) + 0*(2*2) + 1*(2) + 0;<br>
+                            3. decimal = 8+0+2+0<br>
+                            4. decemial = 10<br>
+
+                            Object will be stored in the 10th bucket.
+                           </p></dd> 
+                    </ol>
+                   
+                </p>
+                
+
+
+
                     <div class="col-sm-12 col-md-12 bottom-add">
                 
                     </div> 
