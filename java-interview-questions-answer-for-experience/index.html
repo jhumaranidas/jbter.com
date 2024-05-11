@@ -205,6 +205,138 @@
             <div id="right-main-div">
                 <div class="col-md-9 col-lg-9 col-xl-9 col-sm-12 left-main-div" id="left-main-div">
                     <h1>Java Interview Question Answer for Experience</h1>  
+
+                    <h2><i class="arrow right"></i>How many types of Operations in Java Stream?</h2>
+                    <p>
+                        There are mainly 3 types of operations.
+
+                        <ol style="padding-top:5px;">
+                            <li class="num-list"><h3>Intermediate operations</h3></li>   
+                            <dd style="padding-left:10px;">
+                                    The intermediate operation returns another stream as a result,
+                                    they can be chained together to form a pipeline of operations.
+                                    <br>
+                                    - <b>filter()</b><br>
+                                    <span class="sub-text">Filter the elements based on a specified condition.&nbsp;<a target="_blank" href="https://java2ee.com/stream/stream-filter-method-in-java-8" title="Stream Filter Method in Details" class="dec-none">details...</a></span><br>
+                                    - <b>map()</b> <br>
+                                    <span class="sub-text">Transforms each of the elements in a stream to another value.&nbsp;<a target="_blank" href="https://java2ee.com/stream/stream-map-method-in-java-8" title="Stream Map Method in Details" class="dec-none">details...</a></span><br>
+                                    - <b>sorted()</b> <br>
+                                    <span class="sub-text">Sorts the elements of a stream.&nbsp;<a target="_blank" href="https://java2ee.com/stream/stream-sorted-method-in-java-8" title="Stream Sorted Method in Details" class="dec-none">details...</a></span>
+                            </dd>                           
+                            <li class="num-list"><h3>Terminal operations</h3></li>
+                            <dd style="padding-left:10px;">
+                                The terminal operation means after calling this method on Stream, you cannot call any other method on Stream.
+                                <br>
+                                - <b>forEach() </b><br>
+                                <span class="sub-text">It iterates all the elements in a stream.</span><br>
+                                - <b>collect()</b> <br>
+                                <span class="sub-text">The stream.collect() method accumulate elements of any Stream into a Collection, it is a part of stream terminal operation.  The Collector class provides different methods like toList(), toSet(), toMap(), and toConcurrentMap() 
+                                    to collect the result of Stream into List, Set, Map, and ConcurrentMap in Java. It accepts a Collector in arguments to accumulate elements of Stream into a specified Collection such as <span class="red">stream().collect(Collectors.toList())</span>.
+                                    </span><br>
+                                - <b>anyMatch() and allMatch()</b> <br>
+                                <span class="sub-text">The anyMatch operation checks if any element of a stream matches a given condition, while the allMatch operation checks if all elements &nbsp;&nbsp;satisfy the given condition.</span><br>
+                                - <b>count()</b> <br>
+                                <span class="sub-text">The count operation returns the number of elements in a stream as a long value</span><br>
+                                - <b>reduce()</b> <br>
+                                <span class="sub-text">It is used to reduce the elements of a stream to a single value.</span>
+                            </dd> 
+                            <li class="num-list"><h3>Short-circuit operations</h3></li>
+                            <dd style="padding-left:10px;">
+                                - <b>findFirst() </b><br>
+                                <span class="sub-text">The findFirst() method finds the first element in a Stream. we use this method when we specifically want the first element from a &nbsp;&nbsp;sequence.</span><br>
+                                - <b>anyMatch()</b> <br>
+                                <span class="sub-text">It checks the stream if it satisfies the given condition.</span>
+                            </dd> 
+                        </ol>
+                        <a style="margin-left:20px;" target="_blank" href="https://java2ee.com/https://java2ee.com/stream/stream-operations-in-java-8?rr=3&content=how-many-operation-types-in-java-stream" title="Operation Types In Java Stream" class="font-15"><b>Details of the Operation Types In Java Stream..</b></a>
+                        
+                    </p>
+
+                    <h2><i class="arrow right"></i>What is filter() method in Java Stream?</h2>
+                <p> 
+                    The <b>stream filter()</b> method provides the functionality to filter stream's elements 
+                    on the basis of given lambda expression or predicate. 
+                    The <b>stream filter()</b> method expects a lambda expression or predicate in argument and the lambda
+                    expression returns a boolean(true/false) value, based on boolean value filter method filters the elements.
+                    
+                    <ol>
+                        <li><b>filter() is an intermediate stream operation.</b></li>                                   
+                        <li><b>filter method expects a predicate in argument.</b></li>
+                        <li><b>The Predicate.  is a functional interface. So, you can also pass lambda expression here.</b></li>
+                        <li><b>filter() method does not change/modify the original source/collection.</b></li>
+                        <li><b>filter() method creates a new collection(list/array) based on the condition and returns the new collection.</b></li>
+                        <li><b>Stream does not modify the source. It produces a new Stream by filtering or applying any logic.</b></li>
+                        
+                    </ol>
+                </p>
+                <p>
+<pre><code><span class="code-comment">//Importing required classes</span>
+    import java.util.*;
+    import java.io.*;
+    import java.util.stream.*;
+    <b>
+    public class FilterExample {
+        static void main ( </code><code>String</code><code> args[]) {</b>
+    
+        </code><code>Integer</code><code>[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+        <span class="code-comment">//Filtering the even numbers from a collection</span>
+        List<</code><code>Integer</code><code>> evenList = 
+        Arrays.asList(numbers)
+            .stream()
+            <span class="code-comment">//passing lambda expression in argument</span>
+            .filter(i -> i % 2 == 0)
+            .collect(Collectors.toList());            
+        System.out.println( "<span class="green">Filtered even numbers : </span>"+ evenList );
+    <b> }
+    }</b>
+    <span class="output">
+    Output:
+        Filtered even numbers : [2, 4, 6, 8, 10, 12]
+    </span></code>
+    </pre> 
+                </p>
+
+                <h2><i class="arrow right"></i>What is map() method in Java Stream?</h2>
+                <p>
+                    The <b>stream map()</b> method is an intermediate operation. This method transforms
+                    elements of a stream by applying a mapping function to each of the elements and returns a new stream.
+                    It accepts a Function mapper object as an argument. This function describes how each element
+                     in the original stream is transformed into an element in the new stream.
+
+                    <ol>
+                        <li><b>Stream<span class="red"> map(Function mapper)</span> is an <a target="_blank" href="https://java2ee.com/stream/stream-operations-in-java-8" title="Stream Intermediate Operations">intermediate operation</a>.</b></li>                                   
+                        <li><b>Stream <span class="red"> map()</span> method accepts a Function mapper object in argument.</b></li>
+                        <li><b>Stream <span class="red"> map()</span> method is used to transform elements of a stream by applying a mapping function to each of the elements.</b></li>
+                        <li><b>Stream <span class="red"> map()</span> method returnes a new stream.</b></li>
+                    </ol>
+                </p>
+                <p>
+<pre><code><span class="code-comment">//Importing required classes</span>
+import java.util.*;
+import java.io.*;
+import java.util.stream.*;
+<b>
+public class StreamMapExample {
+    public static void main (</code><code>String</code><code> args[]){ </b>
+    </code><code>Integer</code><code>[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+    <span class="code-comment">//Filtering the even numbers from a collection</span>
+    List<</code><code>Integer</code><code>> evenList = 
+    Arrays.asList(numbers).stream() 
+        <span class="code-comment">//passing lambda expression in argument</span>
+        .filter(i -> i % 2 == 0)
+        <span class="code-comment red">//multiplying by 2 for each element after filter</span>
+        .map(i -> i*2)
+        .collect(Collectors.toList());
+                
+    System.out.println("<span class="green">Filtered even numbers : </span>"+ evenList);
+<b> }
+}
+</b>
+<span class="output">
+Output:
+    Filtered even numbers : [4, 8, 12, 16, 20, 24]</code></span>
+</pre>
+                </p>
                     
                     <h2><i class="arrow right"></i>What is Docker?</h2>
                     <p>
@@ -365,7 +497,69 @@
                         </ol> 
                     </p>
 
-                       
+                    <h2><i class="arrow right"></i>What is collect() method in Java Stream?</h2>
+                    <p>
+                        The <b>stream.collect()</b> method accumulate elements of any Stream into a Collection, 
+                        it is a part of stream <a target="_blank" title="Terminal Operation In Java" href="https://java2ee.com/stream/stream-operations-in-java-8">terminal operation</a>. 
+                        The Collector class provides different methods like <b>toList(), toSet(), toMap(), and toConcurrentMap() </b> to collect the result of Stream into
+                         <b>List, Set, Map, and ConcurrentMap </b>in Java.
+                        It accepts a <a target="_blank" title="Collector In Java" href="https://java2ee.com/stream/stream-collect-method-in-java-8">Collector</a> in arguments to accumulate elements of Stream into a specified Collection 
+                        such as <b>stream().collect( Collectors.toList() ), stream().collect( Collectors.toSet() ),
+                         stream().collect (Collectors.toMap(....) ), stream().collect( Collectors.counting()) </b> etc.. 
+                           
+                         <br>  <br>
+                            It is used to perform different types of reduction operations such as 
+                            calculating the sum of numeric values, finding the minimum or maximum number, 
+                            concatenating strings to new string, collecting elements into a new stream.
+    
+    
+                            <ol>
+                                <li><b>The <i>stream.collect()</i> method is a part of stream terminal operation.</b></li>
+                                <li><b>The <i>stream.collect()</i> method accumulate elements of any Stream into a Collection.</b></li>
+                                <li><b>It is used to convert to list using, <i>stream().collect(Collectors.toList())</i>.</b></li>
+                                <li><b>It is used to convert to map using, <i>stream().collect(Collectors.toMap())</i>.</b></li>
+                                <li><b>It is used to convert to set using, <i>stream().collect(Collectors.toSet())</i>.</b></li>
+                                <li><b>It is used for calculating the sum of numeric values.</b></li>
+                                <li><b>It is used for collecting elements into a new stream.</b></li>
+                                <li><b>It is used for concatenating strings to new string.</b></li>
+                                <li><b>It is used for finding the minimum or maximum number.</b></li>
+                            </ol>
+                        </p>
+                        <p>
+    <pre><code><span class="code-comment">//Importing required classes</span>
+    import java.util.ArrayList;
+    import java.util.List;
+    import java.util.stream.*;
+    <b>
+    public class CollectMethodExample {
+        public static void main(String args[]){</b>
+        <span class="code-comment">//Declaring List</span>
+        List<</code><code>Integer</code><code>> intList = new ArrayList< </code><code>Integer</code><code> >();
+        intList.add( <span class="green">6</span> );
+        intList.add( <span class="green">11</span> );
+        intList.add( <span class="green">14</span> );
+        intList.add( <span class="green">7</span> );
+        intList.add( <span class="green">3</span> );
+        intList.add( <span class="green">2</span> );
+        intList.add( <span class="green">16</span> );
+        intList.add( <span class="green">15</span> );
+        intList.add( <span class="green">19</span> );
+    
+        List<</code><code>Integer</code><code>> evenNumList = 
+            intList.stream()
+            .filter( i-> i%2==0 )
+            <span class="code-comment red">//Converting filtered data to a List</span>
+            .collect( Collectors.toList() );
+    
+        System.out.println( "Even Num List" +evenNumList )
+    <b>
+        }
+    }</b>
+    <span class="output">
+    Output:
+        Even Num List [6, 14, 2, 16]</span></code>
+    </pre>
+                    </p>
 
                     <h2><i class="arrow right"></i>What is Streaming In The Messaging system?</h2>
                     <p>
@@ -507,23 +701,66 @@
                     <a style="margin-left:20px" target="_blank" href="https://java2ee.com/apache-kafka/kafka-producer?height=600&tt=what-is-kafka-producer" title="Kafka Producer" class="font-15"><b>Kafka Producer In Details...</b></a>
                 </p>
                 
-                
-
-
-                    <h2><i class="arrow right"></i>What is Functional Interface In Java?</h2>
-                    <p>
-                        An Interface that contains exactly one abstract method is known as <b>functional interface</b>.
-                        It can have any number of <b>default and static methods</b> but can contain only one <b>abstract method</b>.
-                            <b>Functional Interface</b> is the approach of functional programming
-                        in Java. It is also known as <b>SAM interfaces</b> <b>Single Abstract Method Interfaces</b>.
-                        <h6 style="white-space:nowrap">
-                            <a href="https://java2ee.com/lambda/lambda-expression-example-in-java?ref=lambda expression" target="_blank" title="Lambda expressions" class="font-15">
-                                Lambda expressions
-                            </a>
-                        </h6>
-                        can be used to represent the instance of a functional interface.							
-                    </p>
+                   
                     
+                    <h2><i class="arrow right"></i>What is Stream API?</h2>
+					<p>	
+                        <b>Stream API</b> are designed to be efficient and can support improving the performance of programs.
+                        We can avoid unnecessary loops and iterations in our programs by using Stream functionality. 
+                        Streams can be used for filtering, collecting, printing, and converting data from one structure to another
+                        such as one collection to another collection.
+                    
+                        <ol>
+                            <li><b>Java 8 introduces Stream API, and some additional features to allows functional-style operations on the elements.</b></li>                                   
+                            <li><b>The stream can be used by importing <span class="green">java.util.stream</span> package.</b></li>
+                            <li><b>The stream API is used to process collections of objects.</b></li>
+                            <li><b>A Stream is a sequence of components that can be processed sequentially.</b></li>
+                            <li><b>The elements of a stream are only visited once during the life of a stream.</b></li>
+                            <li><b>Stream does not modify the source. It produces a new Stream by filtering or applying any logic.</b></li>
+                            
+                        </ol>
+                    </p>
+                    <p>Example of filterig data using stream API</h2>
+
+<pre><code>
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+<b>
+public class StreamFilterExample {
+  static void main (</code><code>String</code><code> args[]){ </b>
+    int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+    <span class="code-comment">//Filtering the even numbers from a collection</span>
+    List<</code><code>Integer</code><code>> evenList = 
+        Arrays.asList(numbers).stream() 
+            .filter(i -> i % 2 == 0)
+            .collect(Collectors.toList());
+                  
+    System.out.println( "<span class="green">Even numbers after stream operation : </span>"+ evenList );         
+<b>          
+ }
+}
+</b> 
+<span class="output">
+Output:
+    Even numbers after stream operation : [2, 4, 6, 8, 10]</span></code>
+</pre>
+                </p>
+
+                <h2><i class="arrow right"></i>What is Functional Interface In Java?</h2>
+                <p>
+                    An Interface that contains exactly one abstract method is known as <b>functional interface</b>.
+                    It can have any number of <b>default and static methods</b> but can contain only one <b>abstract method</b>.
+                        <b>Functional Interface</b> is the approach of functional programming
+                    in Java. It is also known as <b>SAM interfaces</b> <b>Single Abstract Method Interfaces</b>.
+                    <h6 style="white-space:nowrap">
+                        <a href="https://java2ee.com/lambda/lambda-expression-example-in-java?ref=lambda expression" target="_blank" title="Lambda expressions" class="font-15">
+                            Lambda expressions
+                        </a>
+                    </h6>
+                    can be used to represent the instance of a functional interface.							
+                </p>
 
                     <h2><i class="arrow right"></i>Rules for a functional interface?</h2>
 					<p>		
@@ -628,6 +865,8 @@ Output:
                     <a style="margin-left:20px" target="_blank" href="https://java2ee.com/consumer-interfaces-in-java-8?vt=1&cont=example of consumer interface in java" title="consumer interface in java 8" class="font-15"><b>Example of Consumer Interface</b></a>
 
 
+                    
+                  
 
                     <h2><i class="arrow right"></i>What is Predicate Interface?</h2>
                     <p>
@@ -735,7 +974,7 @@ Output:
                     </p>
 
 
-                    <h2><i class="arrow right"></i> What is difference between accept() and andThen() method in Java?</h1>
+                    <h2><i class="arrow right"></i> What is difference between accept() and andThen() method in Java?</h2>
                     <p>
                         The accept() and andThen()methods are methods of <a target="_blank" title="Consumer Interface Methods" href="https://java2ee.com/consumer-interfaces-in-java-8">Consumer Interfaces</a>.
                         
@@ -752,6 +991,435 @@ Output:
                         </ol>
                     </p>
 
+
+                    <h2><i class="arrow right"></i>What is sorted() method in Java?</h2>
+                    <p>
+                        
+                        Stream interface provides a <b>sorted()</b> method to sort a list.
+                        The <b>sorted()</b> method returns a sorted stream according to the natural order.
+                        If the elements are not comparable, it throws <span class="red"><i><b>java.lang.ClassCastException</b></i></span>. 
+                         
+                        <ol>
+                            <li><b>Stream <b><span class="red"><i>sorted()</i></span></b> method is an <a target="_blank" href="https://java2ee.com/stream/stream-operations-in-java-8" title="Stream Intermediate Operations">intermediate operation</a>.</b></li>
+                            <li><b>Stream interface provides a <b><span class="red"><i>sorted()</i></span></b> method to sort a list.</b></li>                                   
+                            <li><b>Stream <b><span class="red"><i>sorted()</i></span></b> method returns a sorted stream according to the natural order.</b></li>
+                            <li><b>If the elements are not comparable, it throws <span class="red"><i><b>java.lang.ClassCastException</b></i></span>.</b></li>
+                        </ol>
+                    </p>
+                    <p>
+
+
+Example of stream sorted method in Java.
+<pre>
+<span class="code-comment">//Importing required classes</span>
+<code>import java.util.*;
+<code>import java.io.*;
+<code>import java.util.stream.*;
+<b>
+public class StreamSortedExample {
+public static void main ( </code><code>String</code><code> args[]){ </b>
+</code><code>Integer</code><code>[] numbers = { 100, 20, 13, 440, 5, 16, 7, 28, 2, 11, 1 };
+List</code><code>Integer</code><code>> sortedList = 
+Arrays.asList(numbers).stream() 
+.<span class="red">sorted()</span></code>
+.<span class="red">collect</span>( Collectors.toList() );
+        
+System.out.println( "<span class="green">"Sorted list : </span>"+ sortedList ); </code>
+<b>}
+}
+</b>
+<span class="output">
+Output:
+Sorted list : [1, 2, 5, 7, 11, 13, 16, 20, 28, 100, 440]</span></code>
+</pre>   
+
+                    </p>
+
+
+
+                    <h2><i class="arrow right"></i>What is reduce() method in Java?</h2>
+                    <p>
+                     The <b>reduce()</b> method is a part of <a target="_blank" title="Terminal Operation In Java" href="https://java2ee.com/stream/stream-operations-in-java-8">terminal operations</a> in java stream. 
+                     It performs operations to produce a single value as result by reducing, such as <b> average(), sum(), min(), max(), and count() </b> etc.  
+                     The <b>reduce()</b> method applies the binary operator to each of the elements to reduce it to a single value.
+                     The return type of the <b>reduce()</b> method is type T or it can be an 
+                     Optional.
+
+                        <ol>                                   
+                            <li><b>We can use <i>Stream.reduce()</i></b></li>
+                            <li><b>Syntex -> <code>Optional<</code><code>Integer</code><code>> max = intList.stream().reduce(( i, j ) -> i > j ? i : j);</code></b></li>
+                            <li><b>The return type of the reduce() method is type T or it can be an 
+                                Optional.</b></li>
+                            <li><b>The reduce method is a part of terminal operations in java stream.</b></li>
+                            <li><b>It performs operations to produce a single value as result by reducing, such as <i> average(), sum(), min(), max(), and count() </i> etc.</b></li>
+                            <li><b>The reduce() method applies the binary operator to each element to reduce it to a single value.</b></li>
+                        </ol>
+                    </p>
+                    <p>
+                        Example of Java Reduce Method
+                                   
+<pre><code><span class="code-comment">//Importing required classes</span>
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.*;
+<b>
+public class ReduceMethodExample {
+  public static void main(String args[]){</b>
+    <span class="code-comment">//Declaring List</span>
+    List<</code><code>Integer</code><code>> intList = new ArrayList<</code><code>Integer</code><code>>();
+    intList.add( 6 );
+    intList.add( 11 );
+    intList.add( 14 );
+    intList.add( 7 );
+    intList.add( 3 );
+    intList.add( 2 );
+    intList.add( 16 );
+    intList.add( 15 );
+    intList.add( 19 );
+
+    Optional<</code><code>Integer</code><code>> max = 
+        intList.stream()
+        .reduce(( i, j ) -> i > j ? i : j);
+
+    System.out.println( max )
+    System.out.println( max.get() )
+<b>}
+}</b>
+<span class="output">
+Output:
+Optional[19]
+19</span></code>
+</pre>
+                </p>
+
+
+                <h2><i class="arrow right"></i>What is Predicate test() method in Java Stream?</h2>
+                <p>
+                    The <b>Predicate test()</b> method returns true if the input argument matches the predicate, otherwise false.
+                </p>
+                <p>Example of Predicate test() method.
+<pre><code><b>public static void main( </code><code>String</code><code>[] args){</b> 
+    Predicate<</code><code>Integer</code><code>> pr = a -> ( a > 10 );
+    
+    <span class="code-comment">// Calling Predicate method </span> 
+    System.<span class="blue">out</span>.println( pr.test(20) );       
+    <b>}</b> 
+    <span class="output">
+    Output:
+        true</span></code>
+</pre>
+</p>
+
+                    <h2><i class="arrow right"></i>What is Predicate isEqual() method in Java Stream?</h2>
+                    <p>
+                        The <b>Predicate isEqual()</b> method is a static method of the 
+                        <a target="_blank" href="https://java2ee.com/predicate-interfaces-in-java-8" title="Predicate interface in Java" class="font-15">
+                            Predicate interface
+                        </a> that is used to test the equality of two objects. The object can be a string, integer, 
+                        or a class object.
+                    </p>
+                    <p>Example of Predicate isEqual() method.
+<pre><code><b>public static void mai( </code></code>String</code><code>[] args) { </b> 
+Predicate<</code><code>String</code><code>> pr = 
+        Predicate.<span class="red">isEqual</span>( "<span class="green">MyAllText</span>" );
+
+<span class="code-comment">// Calling Predicate method </span> 
+System.out.println(
+    pr.<span class="red">test</span>( "<span class="green">AllText</span>" )
+); 
+<span class="code-comment">// Calling Predicate method </span> 
+System.<span class="blue">out</span>.println(
+    pr.<span class="red">test</span>( "<span class="green">MyAllText</span>" )
+);
+<span class="code-comment">// Calling Predicate method </span> 
+System.<span class="blue">out</span>.println(
+    pr.<span class="red">test</span>( "<span class="green">MyAll</span>" )
+);        
+<b>}</b>
+<span class="output">
+Output:
+    false
+    true
+    false</span></code>
+</pre>   
+                </p>
+
+
+                <h2><i class="arrow right"></i>What is Predicate and() method in Java Stream?</h2>
+                <p>
+                    The <b>Predicate and()</b> method is used to compose two expression(lambda) that represents a 
+                    short-circuiting logical AND of this predicate. It can be uses to perform logical operations by 
+                    combining two lambda expressions. See the example below. Here, we used and() method to 
+                    check whether a number lies between two numeric range or not.
+                </p>
+                <p>Example of Predicate and() method
+<pre><code><b>public static void main( </code></code>String</code><code>[] args) { </b>  
+    Predicate<</code><code>Integer</code><code>> pr1 = 
+        x -> (x <span class="orange">></span> 20);
+    
+    Predicate<</code><code>Integer</code><code>> pr2 = 
+        x -> (x <span class="orange"><</span> 80);
+    
+    <span class="code-comment">// Calling Predicate method </span> 
+    System.out.println(
+        pr1.<span class="red">and</span>( pr2 ).test(<span class="green">100</span>)
+    ); 
+    <span class="code-comment">// Calling Predicate method </span> 
+    System.out.println(
+        pr1.<span class="red">and</span>( pr2 ).test(<span class="green">50</span>)
+    ); 
+    <span class="code-comment">// Calling Predicate method </span> 
+    System.out.println(
+        pr1.<span class="red">and</span>( pr2 ).test(<span class="green">10</span>)
+    );
+    <b>}</b>
+    <span class="output">
+    Output:
+        false
+        true
+        false</span></span></code>
+    </pre>
+                </p>
+
+
+
+                <h2><i class="arrow right"></i>What is Predicate negate() method in Java Stream?</h2>
+                <p>
+                    The <b>Predicate negate()</b> method allows invert the result of a Predicate. It returns a 
+                    predicate that represents the logical negation of this predicate.
+                </p>
+                <p>
+<pre><code><b>public static void main( </code><code>String</code><code>[] args) {</b>
+    Predicate<</code><code>String</code><code>> startsWithCharJ = 
+        s -> s.startsWith( "<span class="orange">H</span>" );
+    Predicate<</code><code>String</code><code>> hasLengthOfInt5 = 
+        s -> s.length() == <span class="orange">5</span>;
+        System.out.println("**Before Negating**")
+        <span class="code-comment">// Calling without negate method</span> 
+        System.out.println(
+        startsWithCharJ.<span class="red">test</span>( "<span class="green">Horse</span>" )
+        ); 
+        <span class="code-comment">// Calling without negate method</span> 
+        System.out.println(
+        hasLengthOfInt5.<span class="red">test</span>( "<span class="green">India</span>" )
+        ); 
+    
+    <span class="code-comment red">// Here we are negating</span> 
+    Predicate<</code><code>String</code><code>> negateStartsWithCharJ = 
+        startsWithCharJ.<span class="red">negate</span>();
+    Predicate<</code><code>String</code><code>> negatehasLengthOfInt5 = 
+        hasLengthOfInt5.<span class="red">negate</span>();
+    
+        System.out.println("**After Negating**")
+        
+        <span class="code-comment">// Calling after negate predicate</span> 
+        System.out.println(
+            negateStartsWithCharJ.<span class="red">test</span>( "<span class="green">Horse</span>" )
+        ); 
+        <span class="code-comment">// Calling after negate predicate</span> 
+        System.out.println(
+        negatehasLengthOfInt5.<span class="red">test</span>( "<span class="green">India</span>" )
+        );     
+    <b>}</b> 
+    <span class="output">
+    Output:
+        **Before Negating**
+        true
+        true
+        **After Negating**
+        false
+        false
+    </span></code>
+    </pre>
+
+                </p>
+
+
+                <h2><i class="arrow right"></i>What is Predicate or() method in Java Stream?</h2>
+                <p>
+                    The <b>Predicate or()</b> method works similarly to and(), but it returns true if either 
+                    of the any Predicates return true.
+                </p>
+                <p>Example of Predicate or() method
+
+<pre><code><b>public static void main( </code><code>String</code><code>[] args) { </b>
+Predicate<</code><code>String</code><code>> startsWithCharH = 
+    s -> s.startsWith( "<span class="orange">H</span>" );
+Predicate<</code><code>String</code><code>> hasLengthOfInt5 = 
+    s -> s.length() == <span class="orange">5</span>;
+
+Predicate<</code><code>String</code><code>> startsWithCharHOrHasLengthOf5 = 
+    startsWithCharH.<span class="red">or</span>( hasLengthOfInt5 );
+
+    System.out.println( 
+        startsWithCharHOrHasLengthOf5
+        .<span class="red">test</span>( "<span class="green">Hero</span>" )
+    ); 
+    System.out.println(
+        startsWithCharHOrHasLengthOf5
+        .<span class="red">test</span>( "<span class="green">India</span>" )
+    ); 
+    System.out.println(
+        startsWithCharHOrHasLengthOf5
+        .<span class="red">test</span>( "<span class="green">Method</span>" )
+    );
+<b>}</b> 
+<span class="output">
+Output:
+    true
+    true
+    false</span></code>
+</pre>
+                </p>
+
+
+                
+
+
+                <h2><i class="arrow right"></i>What is forEach() method in Java Stream?</h2>
+                <p>
+                    The <b>forEach()</b> method is a default method defined in the Iterable and Stream interface. 
+                    It is a terminal operation in the stream API. The purpose of the <b>forEach()</b> method is iterating 
+                    the elements one by one of a collection to create a result.
+                    The <b>forEach()</b> method accept a lambda expression in argument.
+                     
+
+                    <ol>        
+                        <li><b>The  <b><span class="red"><i>forEach()</i></span></b> method is a default method in the Iterable and Stream interface.</b></li>                                   
+                        <li><b>The  <b><span class="red"><i>forEach()</i></span></b> method is a terminal operation.</b></li>
+                        <li><b>The  <b><span class="red"><i>forEach()</i></span></b> method iterates the elements one by one of a collection to produce a result.</b></li>
+                        <li><b>The  <b><span class="red"><i>forEach()</i></span></b> method accept accept a lambda expression in argument.</li>
+                    </ol>
+                </p>
+                <p>
+<pre><code><span class="code-comment">//Importing required classes</span>
+import java.util.ArrayList;
+import java.util.List;
+<b>
+public class ForEachExample {
+    public static void main(</code><code>String</code><code> args[]){</b>
+    <span class="code-comment">//Declaring List</span>
+    List<</code><code>String</code><code>> countryList = new ArrayList< </code><code>String</code><code> >();
+    countryList.add( <span class="green">"Afghanistan"</span> );
+    countryList.add( <span class="green">"Albania"</span> );
+    countryList.add( <span class="green">"Algeria"</span> );
+    countryList.add( <span class="green">"Australia"</span> );
+    countryList.add( <span class="green">"India"</span> );
+    countryList.add( <span class="green">"Brazil"</span> );
+    countryList.add( <span class="green">"Japan"</span> );
+    countryList.add( <span class="green">"Italy"</span> );
+
+    <span class="code-comment red">//forEach method to printing country names</span>
+    countryList.forEach( country -> System.out.println( country ) );
+    
+    <b> }
+}</b>
+<span class="output">
+Output:
+    Afghanistan
+    Albania
+    Algeria
+    India
+    Australia
+    Brazil
+    Japan
+    Italy</span></code></pre></b>
+
+                </p>
+
+
+                <h2><i class="arrow right"></i>What is count() method in Java Stream?</h2>
+                <p>
+                    The <b>stream count()</b> method is a part of terminal operations in java stream. 
+                    The <b>count()</b> method returns the count of elements in the stream. The return type of <b>count()</b> method is long.
+                    It is the reduction process, it may traverse the stream to produce a result.
+
+                       <ol>
+                           <li><b>The <i>count()</i> method is a part of terminal operations in java stream.</b></li>
+                           <li><b>The <i>count()</i> method returns the count of elements in the stream.</b></li>
+                           <li><b>The return type of <i>count()</i> method is long.</b></li>
+                           <li><b>It is the reduction process, it may traverse the stream to produce a result.</b></li>
+                           <li><b>You can use like <i>list.stream().count()</i>.</b></li>
+                       </ol>
+                </p>
+                <p>
+<pre><code><span class="code-comment">//Importing required classes</span>
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.*;
+<b>
+public class CountMethodExample {
+    public static void main(String args[]){</b>
+    <span class="code-comment">//Declaring List</span>
+    List<</code><code>Integer</code><code>> intList = new ArrayList< </code><code>Integer</code><code> >();
+    intList.add( <span class="green">6</span> );
+    intList.add( <span class="green">11</span> );
+    intList.add( <span class="green">14</span> );
+    intList.add( <span class="green">7</span> );
+    intList.add( <span class="green">3</span> );
+    intList.add( <span class="green">2</span> );
+    intList.add( <span class="green">16</span> );
+    intList.add( <span class="green">15</span> );
+    intList.add( <span class="green">19</span> );
+
+    <span class="code-comment red">//calling count method</span>
+    long count = intList.stream().count();
+
+    System.out.println( count )
+    <b>
+    }
+}</b>
+<span class="output">
+Output:
+    9</span></code>
+</pre>
+
+                </p>
+
+
+                
+
+                <h2><i class="arrow right"></i>What is findFirst() method in Java Stream?</h2>
+                <p>
+                    The findFirst() method is a part of Short circuit operation in Java Stream.
+                    It returns an Optional 1st element of the stream or empty if the stream is empty.
+ 
+                    <ol>
+                        <li>The <i>findFirst()</i> method is a part of stream short circuit operation.</li>
+                        <li>It returns an Optional 1st element of the stream or empty if the stream is empty.</li>
+                        <li>Syntex is <span class="red">Optional<<code>T</code>> findFirst()</span>.</li>
+                    </ol>
+                </p>
+                <p>
+<pre><code><span class="code-comment">//Importing required classes</span>
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+<b class="blue">
+public class FindFirstExample {
+
+    public static void main(String args[]) {</b>
+    List<<code>String</code>> strList = new ArrayList<<code>String</code>>();
+    strList.add("One");
+    strList.add("Two");
+    strList.add("Three");
+    strList.add("Four");
+    strList.add("Five");
+
+    Optional<<code>String</code>> firstElement = strList.stream().findFirst();
+
+    System.out.println(firstElement);
+    System.out.println(firstElement.get());
+<b class="blue"> 
+    }
+}</b>
+
+Output:
+Optional[One]
+One
+    </pre>
+
+                </p>
 
                     <div class="col-sm-12 col-md-12 bottom-add">
                 
