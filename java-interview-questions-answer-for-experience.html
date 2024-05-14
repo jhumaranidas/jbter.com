@@ -14,18 +14,18 @@
 	    <meta name="google-site-verification" content="a3jXA2o9FV1P1UJj3yr7-hhNSl9Y4XJQ9dbYVS1-Wrw">
         <meta property="article:publisher" content="https://www.facebook.com/jbteronline"> 
 
-        <link rel="shortcut icon" href="../img/logo/favicon-16x16.png" type="image/x-icon" />
-	    <link rel="apple-touch-icon" sizes="180x180" href="../img/logo/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="../img/logo/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="../img/logo/favicon-16x16.png"/>
-        <link rel="manifest" href="../img/logo/site.webmanifest"/>
+        <link rel="shortcut icon" href="img/logo/favicon-16x16.png" type="image/x-icon" />
+	    <link rel="apple-touch-icon" sizes="180x180" href="img/logo/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="img/logo/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="img/logo/favicon-16x16.png"/>
+        <link rel="manifest" href="img/logo/site.webmanifest"/>
         
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-        <link href="../css/styles.css" rel="stylesheet" />
-        <link href="../css/kafka-custom.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/kafka-custom.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         
         <meta property="og:locale" content="en_US">
@@ -60,7 +60,7 @@
             
                 <div class="list-group list-group-flush">
                     <a href="https://www.jbter.com" title="jbter.com" >
-                        <img src="../img/logo/JBTER2.png" alt="Logo" style="width:100%;height:70%;"/>
+                        <img src="img/logo/JBTER2.png" alt="Logo" style="width:100%;height:70%;"/>
                     </a>
                     <ul>  
                         <li class="next-botton">     
@@ -1470,6 +1470,8 @@ Map size 2</code>
 
                 </p>
 
+
+
                 <h2><i class="arrow right"></i>Explain Internal Working of HashMap in Java?</h2>
                 <p>
                     HashMap is introduced in 1.2. HashMap in Java stores the object in Key - Value pairs, 
@@ -1484,20 +1486,14 @@ Map size 2</code>
                         <li class="num-list">V value</li>
                         <li class="num-list">Node next</li>
                     </ol>
-                    <img id="kafka-cluster" src="../img/interview/Node class.PNG" title="Node Class" style="width:30%;"><div class="image-text" style="width:100%;text-align: center;">Node Class</div></image>        
+                    <img id="kafka-cluster" src="img/interview/Node class.PNG" title="Node Class" style="width:30%;"><div class="image-text" style="width:100%;text-align: center;">Node Class</div></image>        
                 </p>
                 <p>Hashmap uses the <b>Hashing</b> process to store the objects in a <b>Bucket</b>.
                      First, you need to understand about the <b>Hashing</b> process and <b>Bucket</b>.
                 
                 </p>
                
-                <p>
-                   
-                     
-                    <!--of the element inside the map. To get the bucket number of the object hashCode() method is used.
-                    The hashCode() returns an integer value of memory reference of the object and that is used 
-                    to store object in a bucket in the Hashmap.-->
-                </p>
+            
                 <h3>Hashing Process</h3>
                 <p>
                     Hashing is a process of converting an object into integer form by using the method hashCode().
@@ -1541,9 +1537,168 @@ Map size 2</code>
                    
                 </p>
                 
+                
+                <h2><i class="arrow right"></i>What is HashTable in Java?</h2>
+                <p>
+                    A Hashtable is an array of a list. Each list is known as a bucket. 
+                    Hashtable class contains unique elements, It doesn't allow null key or null value
+                    Hashtable class is synchronized. The default capacity of Hashtable class is 11 and 
+                     loadFactor is 0.75.
+                </p>
+
+                <h2><i class="arrow right"></i>What is HashTable in Java?</h2>
+                <p>
+                    A Hashtable is an array of a list. Each list is known as a bucket. 
+                    Hashtable class contains unique elements, It doesn't allow null key or null value
+                    Hashtable class is synchronized. The default capacity of Hashtable class is 11 and 
+                     loadFactor is 0.75.
+                </p>
+                <h2><i class="arrow right"></i>Difference between HashMap and Hashtable?</h2>
+                <p>
+                    <ol>
+                        <li class="num-list">HashMap is non synchronized and Hashtable is synchronized.
+                           <dd>* HashMap is not-thread safe so its no a good approach to 
+                             shared between many threads without synchronization.</dd>
+                            <dd>
+                                * Hashtable is thread-safe and you can share with many threads.
+                            </dd>
+                        </li>
+                        <li class="num-list">You can add one null key and multiple null values in the HashMap but 
+                            Hashtable doesn't allow any null key or value.</li>
+                        <li class="num-list">HashMap is fast as it is non synchronized whereas, Hashtable is slow as it is synchronized.</li>
+                        <li class="num-list">Iterator is used to iterate a HashMap whereas, Enumerator 
+                            and Iterator both are used to iterate a HashTable.</li>
+                    </ol>
+                </p>
+
+                <h2><i class="arrow right"></i>What is Enum?</h2>
+                <p>
+                    An enum is a special class that represents a group of constants.
+<pre><code>import java.util.*;
+    enum months {  
+        JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+        } 
+</code></pre>  
+                </p>
+
+                <h2><i class="arrow right"></i>How to Synchronise a HashMap?</h2>
+                <p>
+<pre><code>Map m = Collections.synchronizedMap(hashMap);</code></pre>                
+                </p>
+                <h2><i class="arrow right"></i>What is Java EnumSet?</h2>
+                <p>
+                    <b>EnumSet</b>provides the functionality of Set implementation for use with enum types.
+<pre><code>import java.util.*;
+    enum months {  
+        JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+      } 
+      
+      public static void main(String[] args) {  
+        Set<</code><code>months> set = EnumSet.of(months.JANUARY, months.FEBRUARY, months.MARCH);  
+        
+        Iterator<</code><code>months> iter = set.iterator();  
+        while (iter.hasNext())  
+          System.out.println(iter.next());  
+      }
+Output:
+    JANUARY
+    FEBRUARY
+    MARCH
+</code></pre>                
+                </p>
 
 
+                
+                <h2><i class="arrow right"></i>What is Java EnumMap?</h2>
+                <p>
+                    <b>EnumMap</b> provides the functionality of Map implementation with enum type of keys.
+<pre><code>import java.util.*;
+enum Months {  
+    JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+} 
+      
+public static void main(String[] args) {  
+    
+    EnumMap<</code><code>Months, String> map = new EnumMap<</code><code></code>Months, String>(Days.class);  
+    map.put(Months.JANUARY, "1");  
+    map.put(Months.FEBRUARY, "2");  
+    map.put(Months.MARCH, "3");  
+    map.put(Months.APRIL, "4");  
+    map.put(Months.MAY, "5");  
 
+}
+</code></pre> 
+                
+                </p>
+
+                <h2><i class="arrow right"></i>How to create Immutable class in Java?</h2>
+                <p>
+                    <b>Immutable</b> class in java means, once an object is created we cannot change its value.<br> 
+                    The wrapper classes such as Integer, Boolean, Byte, Short and String classes are immutable.
+                </p>
+                <p>
+                    Rules for the creating custom Immutable class in Java.
+                    <ol class="pt-0">
+                        <li>The class must be declared as final, so that child classes can not be created.</li>
+                        <li>All attributes in the class must be declared as private so 
+                            that direct access is not allowed from outside of the class.</li>
+                        <li>All attributes in the class must be declared as final so that value can not be changed object creation.</li>
+                        <li>Parameterized constructor must be created with all the fields.</li>
+                        <li>Need to implement deep copy inside constructor so that data members can not be modified with an object reference.</li>
+                    </ol>
+                </p>
+                <p>Example of custom Immutable class in Java.
+<pre><code>import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+final class BookAuthor {
+    private final Integer authorId;
+    private final String authorName;
+    private final Date dob;
+    private final Map<</code><code>Integer, String> bookMap = new HashMap<</code><code>Integer, String>();
+
+
+    BookAuthor(Integer authorId, String authorName, Map<</code><code>Integer, String> bookMap, Date dob) {
+        this.authorId = authorId;
+        this.authorName = authorName;
+        <span class="comment red">//Cloning Copy</span>
+        this.dob = (Date) dob.clone();
+        <span class="comment red">//Deep Copy</span>
+        for (var entry : bookMap.entrySet()) {
+            this.bookMap.put(entry.getKey(), entry.getValue());
+        }
+    }
+
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public Map<</code><code>>Integer, String> getBookMap() {
+
+        Map<</code><code>Integer, String> tempMap = new HashMap<</code><code>Integer, String>();
+        for (var entry : this.bookMap.entrySet()) {
+            tempMap.put(entry.getKey(), entry.getValue());
+        }
+        return tempMap;
+    }
+}
+</code></pre>
+                </p>
+
+
+                <h2><i class="arrow right"></i>What is Singleton Design Pattern?</h2>
+                <p>
+                </p>
+                
                     <div class="col-sm-12 col-md-12 bottom-add">
                 
                     </div> 
