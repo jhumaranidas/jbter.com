@@ -25,7 +25,7 @@ body{
     float:left;
 }
 p{
-	font-size: 15px;
+	font-size: 18px;
 	text-align: justify;
 	padding-right: 5px;
     font-family: monospace;
@@ -546,7 +546,7 @@ li.next-botton{
   
    font-style: normal;
     color: #283747;
-	font-size: 15px !important;
+	font-size: 18px !important;
 	text-align: justify;
 	font-family: monospace;
 }
@@ -561,14 +561,14 @@ li.next-botton{
    
     font-style: normal;
     color: #283747;
-	font-size: 15px !important;
+	font-size: 18px !important;
 	list-style-type: disclosure-closed;
     margin-left: 20px;
 }
 .bottom-next-topic{
 	height:25px;
 	margin:5px 0px 0px 5px;
-	font-size: 15px !important;
+	font-size: 18px !important;
 	
 }
 
@@ -579,7 +579,7 @@ li.next-botton{
 
 .dd-h2{
 	font-family: monospace;
-    font-size: 15px;
+    font-size: 18px;
 	color:inherit;
 	font-weight:bold;
 	
@@ -589,7 +589,7 @@ li.next-botton{
 
 .arrow-list{
 	list-style-type: disclosure-closed !important;
-	font-size:15px !important;
+	font-size:18px !important;
 	color:#333 !important;
 	line-height:1.2 !important;
 }
@@ -601,7 +601,7 @@ li.next-botton{
 }
 .num-list{
 	list-style:number !important;
-	font-size:15px !important;
+	font-size:18px !important;
 	color:#333 !important;
 	line-height:1.8 !important;
 	text-align: inherit !important;
@@ -620,7 +620,7 @@ li.next-botton{
 }
 .top-list{
 	list-style:circle !important;
-	font-size:15px !important;
+	font-size:18px !important;
 	color:#333 !important;
 	line-height:1.2 !important;
 }
@@ -651,7 +651,7 @@ li.next-botton{
   border-width: 0 4px 4px 0;
   display: inline-block;
   padding: 4px;
-  margin-right:15px;
+  margin-right:18px;
 }
 
 .right {
