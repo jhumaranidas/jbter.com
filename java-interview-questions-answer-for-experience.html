@@ -1695,9 +1695,649 @@ final class BookAuthor {
                 </p>
 
 
-                <h2><i class="arrow right"></i>What is Singleton Design Pattern?</h2>
+                <h2><i class="arrow right"></i>What is difference between Comparable and Comparator Interface in Java?</h2>
+                <h3>Comparable</h3>
+                <p><ol class="pt-0">
+                        <li>The <b>Comparable</b> compares itself with another object.</li>
+                        <li>The class itself must implements the java.lang.Comparable interface to compare its instances.</li>
+                        <li>Need to override the  compareTo() method in the class itself.</li>
+                    </ol>
+                </p>
+                <h3>Comparator</h3>
+                <p><ol class="pt-0">
+                        <li>The <b>Comparator</b> provides multiple sorting sequences.</li>
+                        <li>You can sort the collection on the basis of multiple elements 
+                            such as id, name, age and city etc..</li>
+                        <li>Comparator doesn't affect the original class. The actual class is not modified.</li>
+                        <li>Comparator has compare() method to sort elements.</li>
+                        
+                    </ol>
+                </p>
+
+                <h2><i class="arrow right"></i>Example of Comparable in Java?</h2>
+                <p>
+<pre><code>public class ComparableExample implements Comparable<</code><code>ComparableExample>{
+ private Integer id;
+ private String name;
+ private String email;
+ private Integer age;
+
+
+ @Override
+ <span class="red">//Override compareTo method</span>
+ public int compareTo(ComparableExample obj) {
+    if(age==obj.age)
+        return 0;
+    else if(age>obj.age)
+        return 1;
+    else
+        return -1;
+  }
+ }  </code></pre>
+
+                </p>
+
+
+                <h2><i class="arrow right"></i>Example of Comparator in Java?</h2>
+                <p>
+<pre><code>import java.util.Comparator;
+public class Employee {
+    private Integer id;
+    private String name;
+    private String email;
+    private Integer age;
+    
+    public Employee(Integer id, String name, String email, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+    
+    public Integer getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public Integer getAge() {
+        return age;
+    }
+}
+<span class="red">//Seperate class need to create</span>
+class DemoComtarorExample implements Comparator<</code><code>Employee> {
+    @Override
+    <span class="red">//Override the compare method</span>
+    public int compare(Employee obj1, Employee obj2) {
+        if(obj1.getAge() == obj2.getAge())
+            return 0;
+        else if(obj1.getAge() > obj2.getAge())
+            return 1;
+        else
+            return -1;
+    }
+} </code></pre>
+
+                </p>
+
+
+
+                <h2><i class="arrow right"></i>What is LinkedList in Java?</h2>
+                <p>
+                    LinkedList is a linear data structure where the elements are not stored 
+                    in contiguous locations and every element is a separate object with a pointer of   
+                    address of another object. LinkedList class uses doubly linked list to store the elements.
+                    <ol class="pt-0">
+                        <li>LinkedList is a dynamic data structure whose size increases 
+                            as you add the elements and decreases as you remove the elements from the list.</li>
+                        <li>LinkedList class uses doubly linked list to store the elements.</li> 
+                        <li>LinkedList class is non synchronized.</li>
+                        <li>LinkedList maintains insertion order and provides a linked-list data structure.</li>                  
+                        <li>The elements in the linked list are stored in the containers.</li>
+                        <li>The object holds the address of the previous container as well as for the next container.</li>  
+                        <li>Whenever you add an element to the list using add() operation, a new 
+                            container is created, and this container is linked to the other containers 
+                            in the list.</li>
+                        <li>Manipulation is fast in the LinkedList because no shifting needs to occur.</li>
+                    </ol><h3>Example of LinkedList</h3>
+
+<pre><code>import java.io.IOException;
+import java.util.LinkedList; 
+public class LinkedListExample {
+  public static void main(String[] args) throws IOException {
+
+    LinkedList<String> ll = new LinkedList<String>();
+
+    ll.add("A1");
+    ll.add("A2");
+    ll.addLast("A3");
+    ll.addFirst("A4");
+    ll.add(1, "A5");
+
+    System.out.println(ll);
+    //ll.pop();pop the first element
+    //ll.poll(); poll and remove the head element
+    ll.add("A6");
+    ll.remove("A2");
+    //ll.remove(2);
+    ll.removeFirst();
+    ll.removeLast();
+
+    System.out.println(ll);
+  }
+}
+Output:
+    [A4, A5, A1, A2, A3]
+    [A5, A1, A3]
+</code></pre>
+
+                </p>
+
+
+                <h2><i class="arrow right"></i>Spring Boot and what are its Benefits?</h2>
+                <p>
+                    Java Spring Boot is an open source lightweight framework that helps to 
+                    develop application easyly 
+                     as it provides minimum configuration, annotation base configuaration, 
+                     no need to add much configuration such as if we need to create datasource
+                      just need to add few values in the properties file.
+                      
+                </p>
+                <p>
+                    It has embeded HTTP server, we dont need to create a seperate server to 
+                    rn the application.
+                </p>
+
+
+
+                <h2><i class="arrow right"></i>Advantages of Spring Boot?</h2>
+                <p>
+                    <ol class="pt-0">
+                        <li>Fast deployment.</li> 
+                        <li>High scalability.</li>
+                        <li>Container compatibility.</li>                  
+                        <li>Minimal configuration.</li>
+                        <li>Lower production time.</li>  
+                        <li>Increased productivity.</li>
+                        <li>Reduced development time.</li>
+                        <li>Easy monitoring and management of applications.</li>
+                    </ol>
+                </p>
+
+
+                <h2><i class="arrow right"></i>Features Spring Boot?</h2>
+                <p>
+                    <ol class="pt-0">
+                        <li>Actuator - enables users to manage and monitor applications.</li> 
+                        <li>Spring Cloud - enables to create microservices.</li>
+                        <li>Embedded servers - such as Jetty and Tomcat.</li>
+                        <li>Run the application without deploying.</li>                  
+                        <li>Auto-Configuration functionality - configure Spring applications automatically.</li>
+                    </ol>
+                </p>
+
+
+                
+                <h2><i class="arrow right"></i>what are the main libraries of Spring Boot?</h2>
+                <p>
+                    <ol class="pt-0">
+                        <li>spring-boot-starter-parent</li> 
+                        <li>spring-boot-maven-plugin</li>
+                        <li>spring-boot-starter-test</li>
+                        <li>spring-boot-starter-security</li>                  
+                        <li>spring-boot-starter-actuator</li>
+                        <li>Spring-boot-starter-web</li>
+                    </ol>
+                </p>
+
+
+                <h2><i class="arrow right"></i>Spring Boot Annotations?</h2>
+                <p>
+                    <ol class="pt-0">
+                        <li> - @SpringBootApplication</li> 
+                        <li> - @EnableAutoConfiguration</li>
+                        <li> - @Autowired - </li>
+                        <li> - @Configuration</li>                  
+                        <li> - @ComponentScan</li>
+                        <li> - @Component</li>
+                        <li> - @Controlle</li>
+                        <li> - @Service</li>
+                        <li> - @Repository</li>
+                        <li> - @RequestMapping</li>
+                    </ol>
+                </p>
+
+
+                
+                <h2><i class="arrow right"></i>What is Spring Boot Actuator?</h2>
+                <p>
+                    Spring Boot Actuator is a module that provides production-ready features to monitor 
+                    and manage the Spring Boot application.
+                    It provides many endpoints that used for monitoring, health checks, auditing, 
+                    and managing the application.
+                </p>
+                
+
+                <h2><i class="arrow right"></i>What is Spring Boot Actuator?</h2>
+                <p>
+                    Swagger is used for the detailing and documenting of RESTful APIs.
+                </p>
+
+
+                
+                <h2><i class="arrow right"></i>What is the Java Persistence API?</h2>
+                <p>
+                    JPA stands for Java Persistence API. JPA is used to persist data between
+                     Java object and relational database. The JPA is only a specification, needs ORM tools 
+                     like Hibernate, iBatis, and TopLink implements the JPA specification 
+                     and perform these type of tasks.
+                </p>
+                <p>
+                     Java Persistence API is a collection of classes and methods to persist or store 
+                     a vast amount of data in a database using ORM.
+                </p>
+                
+
+                <h2><i class="arrow right"></i>What is Spring Data JPA?</h2>
+                <p>
+                    Spring Data JPA is a part of JPA and it reduces the amount of boilerplate 
+                    code needed for common database operations like GET, PUT, POST, etc.
+                </p>
+
+
+                <h2><i class="arrow right"></i>What is Spring Repository?</h2>
+                <p>
+                    Spring Repository is an extension of Spring Repository which contains 
+                    APIs for basic CRUD operations, pagination, and Sorting.
+                </p>
+                
+
+                
+                <h2><i class="arrow right"></i>What is HQL?</h2>
+                <p>
+                    HQL stands for Hibernate Query Language it allows to expression of database 
+                    queries using entity and property names.
+                </p>
+
+
+                
+                <h2><i class="arrow right"></i>How to create HQL Queries?</h2>
+                <p>
+<pre><code>Session session = sessionFactory.openSession();
+try {
+    String hql = "FROM Employee WHERE department.id = :deptID";
+    Query<</code><code>Employee> query = session.createQuery(hql, Employee.class);
+    query.setParameter("deptID", 1);
+    List<</code><code>Employee> empList = query.list();
+    for (Employee employee : empList) {
+        System.out.println("Employee Name: " + employee.getName());
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+    session.close();
+}
+</code></pre>                   
+                </p>
+
+
+                <h2><i class="arrow right"></i>How can we add criteria Query?</h2>
+                <p>
+<pre><code>Session session = sessionFactory.openSession();
+try {
+    Criteria criteria = session.createCriteria(Employee.class);
+    criteria.add(Restrictions.eq("city", "City Name"));
+    criteria.add(Restrictions.between("age", 30, 40));
+   
+    List<</code><code>Employee> empList = criteria.list();
+    for (Employee emp : empList) {
+        System.out.println("Employee Name: " + emp.getName());
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+} finally {
+    session.close();
+}
+sessionFactory.close();
+
+</code></pre>                
+                <h2><i class="arrow right"></i>What is Hibernate?</h2>
+                <p>
+                    Hibernate is open source lightweight object relational mapping tool.
+                    It provides the functionalty to map between Entity object with database
+                    table. It makes automatic database operations like create, read, update, delete
+                     operations.
+                </p>
+
+
+                <h2><i class="arrow right"></i>Difference between session and sessionfactory in hibernate?</h2>
+                <p>
+                    <b>Hibernate Session</b> is an interface between application and database,
+                    session is required to create session factory.<br><br>
+                    <b>SessionFactory</b> in Hibernate is to create and manage the session instances,
+                    database connection,  
+                </p>
+                
+
+                
+                <h2><i class="arrow right"></i>What is the difference between the get and load method?</h2>
+                <p>
+                    <ol class="pt-0">
+                        <li>If object not found for the given identifier then it will return null object but 
+                            load will throw object not found exception.   </li> 
+                        <li>get returns fully initialized object so this method eager load the object 
+                            but load always returns proxy object so this method is lazy load the object.</li>
+                        <li>get is slow as it loads eager but load is faster than get as it loads lazy. </li>
+                        <li> - @Configuration</li>                  
+                        <li> - @ComponentScan</li>
+                        <li> - @Component</li>
+                        <li> - @Controlle</li>
+                        <li> - @Service</li>
+                        <li> - @Repository</li>
+                        <li> - @RequestMapping</li>
+                    </ol>
+                    
+                </p>
+
+
+                <h2><i class="arrow right"></i>What is database indexing?</h2>
+                <p>
+                    The main purpose of indexing is to improves database performance.
+                    An index is a database structure that you can use to improve the performance 
+                    of database activity. A database table can have one or more indexes.
+                </p>
+                <p> A database driver can use indexes to find records quickly. 
+                    While an index speeds up the performance of data retrieval queries 
+                    (SELECT statement), it slows down the performance of data input queries 
+                    (UPDATE and INSERT statements).
+                </p>
+
+
+                
+                <h2><i class="arrow right"></i>Types of Indexes?</h2>
+                <p>
+                    <ol class="pt-0">
+                        <li class="num-list">Unique Index</li> 
+                        <li class="num-list">Single-Column Index</li>
+                        <li class="num-list">Composite Index</li>
+                        <li class="num-list">Implicit Index</li>
+                    </ol>
+                </p>
+                <h3>Unique Index</h3>
+                <p>
+                    Unique indexes are used for data integrity as well as for for performance.<br>
+                    Example of Unique Index.
+<pre><code>CREATE UNIQUE INDEX index_name
+on table_name (column_name);
+</code></pre>
+                </p>
+                <h3>Single-Column Index</h3>
+                <p>
+                    A single-column index is created only on one table column.<br>
+                    Example of Single-Column Index.
+<pre><code>CREATE INDEX index_name
+ON table_name (column_name);
+</code></pre>
+                </p>
+                <h3>Composite Indexes</h3>
+                <p>
+                    A composite index is an index that can be created on two or more columns of a table.<br>
+                    Example of Composite Index.
+<pre><code>CREATE INDEX index_name
+on table_name (column1, column2);
+</code></pre>
+                </p>
+                <h3>Implicit Index</h3>
+                <p>
+                    Implicit indexes are indexes that are automatically created by the database server when 
+                    an object is created such as primary key and unique constraints.<br>
+                </p>
+
+
+                
+                <h2><i class="arrow right"></i>What is the view in SQL?</h2>
+                <p>
+                    Views in SQL are a kind of virtual table. A view also has rows and columns 
+                    as they are on a real table in the database. We can create a view by selecting 
+                    fields from one or more tables present in the database. A View can either have 
+                    all the rows of a table or specific rows based on certain conditions. 
+                </p>
+
+
+               
+                <h2><i class="arrow right"></i>What is normalization?</h2>
+                <p>
+                    Normalization reduce data redundancy and enhance data integrity in the table.
+                    It also helps to organize the data in the database by removing duplicated data from the relational 
+                    tables.
+                </p>
+
+                <h2><i class="arrow right"></i>Types of normalization?</h2>
+                <p>
+                    <ol class="pt-0">
+                        <li class="num-list"><h3>First Normal Form (1NF)</h3></li> 
+                        <dd><p>
+                            Column should contain only a single value, and each column should have a unique name. 
+                        </p></dd>
+                        <li class="num-list"><h3>Second Normal Form (2NF)</h3></li>
+                        <dd><p>
+                            Each row should be associated with a primary key. 
+                        </p></dd>
+                        <li class="num-list"><h3>Third Normal Form (3NF)</h3></li>
+                            Non-key columns should be directly related to the primary key.
+                        <li class="num-list">Boyce-Codd Normal Form (BCNF)</li>
+                        <dd><p>
+                           3NF rule is followed in the BCNF.
+                        </p></dd>
+                        <li class="num-list"><h3>Fourth Normal Form (4NF)</h3></li>
+                        <li class="num-list"><h3>Fifth Normal Form (5NF)</h3></li>
+                    </ol>
+                </p>
+
+                <h2><i class="arrow right"></i>What is Denormalization?</h2>
+                <p>
+                    <b>Denormalization</b> is is used to optimization or increase performance.
+                     In Denormalization, need to add redundant data to one or more tables.
+                </p>
+
+                <h2><i class="arrow right"></i>What is Constraint?</h2>
+                <p> 
+                    <b>Constraint</b> in SQL is a set of rules we are applying the restrictions on the database.
+                    The rule checks before inserting data into the database such as NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY etc.
+                </p>
+               
+                
+                
+                <h2><i class="arrow right"></i>What is Data Integrity?</h2>
+                <p>
+                    Data integrity is the and process of ensure the accuracy, completeness, consistency, 
+                    and validity of an organization's data. 
+                </p>
+
+                <!--
+                <h2><i class="arrow right"></i>What are Union, minus, and Interact commands?</h2>
                 <p>
                 </p>
+
+
+                
+                <h2><i class="arrow right"></i>How to copy tables in SQL?</h2>
+                <p>
+                </p>
+
+
+                
+                <h2><i class="arrow right"></i>What is SQL injection?</h2>
+                <p>
+                </p>
+            -->
+
+                 
+                <h2 class="f15"><i class="arrow right"></i>Write an SQL query to find the names of employees starting with "M".</h2>
+                <p>
+<pre><code>SELECT * FROM Employee WHERE name like 'M%';</code></pre>
+                </p>
+
+
+                <h2 class="f15"><i class="arrow right"></i>Write an SQL query to find the names of employees starting with "M".</h2>
+                <p>
+<pre><code>SELECT * FROM Employee WHERE name like 'M%';</code></pre>
+                </p>
+
+
+                
+                <h2 class="f15"><i class="arrow right"></i>Write SQL query to fetch “NAME” in upper case with alias.</h2>
+                <p>
+<pre><code>SELECT upper(NAME) as EMPLOYEE_NAME from employee;</code></pre>
+                </p>
+
+               
+                <h2 class="f15"><i class="arrow right"></i>Write a SQL query to fetch unique values of CITY.</h2>
+                <p>
+<pre><code>SELECT distinct city from EMPLOYEE;
+OR
+SELECT CITY FROM EMPLOYEE GROUP BY(CITY);</code></pre>
+                </p>
+
+                <h2 class="f15"><i class="arrow right"></i>Write a SQL query to print the first two characters of NAME </h2>
+                <p>
+<pre><code>SELECT SUBSTRING(NAME, 1, 2) from EMPLOYEE;</code></pre>
+                </p>
+
+                <h2 class="f15"><i class="arrow right"></i>Write a SQL query to fetch employee details from Employee table 
+                    order by NAME Ascending and CITY descending.</h2>
+                <p>
+<pre><code>SELECT * FROM EMPLOYEE ORDER BY NAME , CITY DESC;</code></pre>
+                </p>
+
+
+                <h2 class="f15"><i class="arrow right"></i>Write a SQL query to fetch the EMPLOYEE details whose NAME ends with 'v'.</h2>
+                <p>
+<pre><code>SELECT * FROM EMPLOYEE where name like '%v';</code></pre>
+                </p>
+
+
+                
+                <h2 class="f15"><i class="arrow right"></i>Write SQL query to fetch the count of Employee having City of 'Mumbai'.</h2>
+                <p>
+<pre><code>SELECT CITY, COUNT(*) AS COUNT_CITY FROM EMPLOYEE where CITY='Mumbai';</code></pre>
+                </p>
+
+
+                <h2 class="f15"><i class="arrow right"></i>Write a SQL CONCAT query of first_name and last_name.</h2>
+                <p>
+<pre><code>SELECT CONCAT(first_name, ' ', last_name) as FULL_NAME FROM EMPLOYEE;</code></pre>
+                </p>
+
+
+                <h2 class="f15"><i class="arrow right"></i>Write SQL query to fetch the count of EMPLOYEE for each CITY in the descending order.</h2>
+                <p>
+<pre><code>SELECT CITY, COUNT(city) FROM EMPLOYEE group by CITY order by COUNT(city);</code></pre>
+                </p>
+
+
+                <h2 class="f15"><i class="arrow right"></i>You have two tables EMPLOYEE and SALARY. Write SQL query to  NAME of Employee
+                    from and SALARY_AMOUT, SALARY_DATE from Salary table.
+                </h2>
+                <p>
+<pre><code>SELECT EMPLOYEE.FIRST_NAME, EMPLOYEE.LAST_NAME 
+    SALARY.SALARY_AMOUNT, SALARY.SALARY_DATE
+    FROM EMPLOYEE
+    INNER JOIN 
+    SALARY ON EMPLOYEE.ID=SALARY.ID;
+</code></pre>
+                </p>
+
+
+                
+                <h2 class="f15"><i class="arrow right"></i>Write SQL query to fetch to fetch 2nd highest salary.</h2>
+                <p>
+<pre><code>SELECT * FROM Employee ORDER BY salary DESC LIMIT 2, 1;</code></pre>
+                </p>
+
+                <h2 class="f15"><i class="arrow right"></i>Write SQL query to clone another table with data.</h2>
+                <p>
+<pre><code>CREATE TABLE new_table_name AS SELECT * FROM Employee;</code></pre>
+                </p>
+
+                <h2 class="f15"><i class="arrow right"></i>Write SQL query to find the average of salary.</h2>
+                <p>
+<pre><code>SELECT AVG(salary) FROM employee;</code></pre>
+                </p>
+
+                <h2 class="f15"><i class="arrow right"></i>Write SQL query to find the average salary of each city.</h2>
+                <p>
+<pre><code>SELECT CITY, AVG(salary) FROM employee GROUP BY CITY;</code></pre>
+                </p>
+
+
+<h2 class="f15"><i class="arrow right"></i>Write SQL query to find the city name where city name count is one.</h2>
+                <p>
+<pre><code>SELECT CITY FROM employee GROUP BY CITY HAVING COUNT(CITY) = 1;</code></pre>
+                </p>
+
+                <h2><i class="arrow right"></i>What is Singleton Design Pattern?</h2>
+                <p>
+                    The <b>Singleton</b> Design Pattern provides only one instance of a class.
+                    Application can access the instance of Singleton class from multiple places.
+                </p>
+                <p><h3>Create Singleton design pattern</h3>
+                    <ol class="pt-0">
+                        <li class="num-list">Static member</li>
+                        <li class="num-list">Private constructor</li>
+                        <li class="num-list">Static factory method</li>
+                    </ol>
+                </p>
+                <p>Example of Singleton class in Java.
+<pre><code>public class SingleToneDesignPatternExample {
+  private static SingleToneDesignPatternExample obj;
+
+  private SingleToneDesignPatternExample(){}
+
+  private static SingleToneDesignPatternExample getSInstance(){
+    if(obj==null){
+        synchronized (SingleToneDesignPatternExample.class){
+            obj = new SingleToneDesignPatternExample();
+        }
+    }
+    return obj;
+  }
+}</code></pre>
+                </p>
+
+
+
+                <h2><i class="arrow right"></i>What is SOLID Design Pattern?</h2>
+                <p>
+                    The SOLID design pattern principles are below.
+                    <ol class="pt-0">
+                        <li class="num-list"><h3>Single Responsibility</h3> - A class should only have one responsibility.</li>
+                        <li class="num-list"><h3>Open/Closed</h3> - Class should be open for extension but closed for modification.</li>
+                        <li class="num-list"><h3>Liskov Substitution</h3> - If class A is a subtype of class B, we should be able to replace B with A without 
+                            disrupting the behavior of our program. </li>
+                        <li class="num-list"><h3>Interface Segregation</h3> - larger interfaces should be split into smaller ones.</li>
+                        <li class="num-list"><h3>Dependency Inversion</h3></li>
+                    </ol>
+                </p>
+
+                
+
+                <h2><i class="arrow right"></i>What is Jenkins?</h2>
+                <p>
+                    Jenkins is a CICD (continuous integration and continuous delivery) tool that helps for the delivery of projects.
+                    Jenkins install on a server where we acn do the central build procees.
+                    <ol class="pt-0">
+                        <li class="num-list">Developer push code in a repository.</li>
+                        <li class="num-list">Jenkins takes the source code from repository.</li>
+                        <li class="num-list">Jenkins starts the build process after taking the changes from source code.</li>
+                        <li class="num-list">Jenkins deploy the build version into aserver after completed the build.</li>
+                    </ol> 
+                </p>  
+
+
                 
                     <div class="col-sm-12 col-md-12 bottom-add">
                 

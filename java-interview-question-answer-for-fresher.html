@@ -332,6 +332,114 @@ Output:
                             </dd>
                         </ol>
                     </p>
+
+
+                    <h2><i class="arrow right"></i>Difference between JDK, JRE, and JVM?</h2>                   
+                    <p>
+                        <img id="java-architecture" src="img/interview/Java Architecture.PNG" title="Difference between JDK, JRE, and JVM?" style="width:60%;"><div class="image-text" style="width:100%;text-align: center;">Java Architecture</div></image>     
+                    </p>
+                    <h3>JDK</h3>
+                    <p>
+                        <b>JDK</b> stands Java Development Kit.  JDK provides the environment to develop, execute or run the Java program.
+                         JRE is a part of JDK and JVM is a part of JRE.
+                    </p>
+                    <h3>JRE</h3>
+                    <p>
+                        <b>JRE</b> stands Java Runtime Environment.  JRE is a part of JDK, it provides an environment 
+                        to run the java program or application onto machine. JRE does not provides development tools, 
+                        its provides the functionality to run the program/application only. 
+                    </p>
+                    <h3>JVM</h3>
+                    <p>
+                        JVM stands Java Virtual Machine and it is a part of JRE(Java Runtime Environment).
+                        JVM is a run-time engine to run Java applications. 
+                        JVM calls the main method present in a Java code. It provides a runtime environment
+                         for driving Java applications or code.
+                        JVM is an abstract machine that converts the Java bytecode into machine language. 
+                        It is called a virtual machine because it doesn't physically exist.
+                    </p>
+
+                    <h2><i class="arrow right"></i>How class loader works in Java?</h2> 
+                    Whenever we create a ".java" file, first we need to compile it with <b>javac "class name"</b> command
+                        to compile the file.<br><br>                 
+                    <p>The below process will be executed when we compile the file.
+                        <ol class="pt-0">
+                            <li class="num-list">Compile the file of <b>".java" to ".class"</b></li>
+                            <li class="num-list">Bytecode converion will be done when we compile the <b>".java"</b> file.</li>
+                        </ol>
+                    </p>
+                    <p>The next step is to run the ".class" file.
+                        <ol class="pt-0">
+                            <li class="num-list">Need to execute the <b>run command</b> to run the ".class file, example (run "file name").</li>
+                            <li class="num-list">Whenever we execute run command, the class loader loads the class file verify the bytecodes and distributes
+                                the class related data in the JVM memory areas, such as objects goes to the heap memory, method area, stack area etc.
+                            </li>
+                            <li class="num-list">Next part is Interpreter - JVM converts bytecode to machine language specific 
+                                for the platform independent. JVM also support (JIT) just-in-time compiler. </li>                
+                        </ol>
+                    </p>  
+                           
+                    </p>
+                    <h2><i class="arrow right"></i>What is Java Memory Management?</h2>
+                    <p>
+                        Some of the areas are created by the JVM and some of the areas are created by the 
+                        threads that are used in a program. When thread start creates the dat and destroy when thread exits but 
+                         the memory area created by JVM is destroyed only when the JVM exits.
+                    </p>
+                    <p><b>Java Memory Areas</b>
+                        <ol class="pt-0">
+                            <li class="num-list">Heap Area</li>
+                            <li class="num-list">Method Area</li>
+                            <li class="num-list">JVM Stack</li>
+                            <li class="num-list">Native JVM Stack</li>
+                            <li class="num-list">PC Registration</li>
+                        </ol>
+                    </p>
+
+
+                    <h2><i class="arrow right"></i>What is Heap Area?</h2>
+                    <p><b>Java Memory Areas</b>
+                        <ol class="pt-0">
+                            <li class="num-list">Java stores the objects in the Heap memory.</li>
+                            <li class="num-list">The Heap area creates during the virtual machine startup.</li>
+                            <li class="num-list"> Whenever a new object is created, object is assigned a space in the Heap.</li>
+                        </ol>
+                    </p>
+                    
+                    <h2><i class="arrow right"></i>What is Method Area?</h2>
+                    <p>
+                        <b>Method area</b> is a part of the heap memory which is shared among all the threads.
+                        The method area is allocated for class structure, superclass name, interface name, and constructors.                       
+                    </p>
+
+                    <h2><i class="arrow right"></i>What is JVM Stack?</h2>
+                    <p>
+                        <ol class="pt-0">
+                            <li class="num-list"><b>Stack Area</b> generates when a thread creates.</li>
+                            <li class="num-list">Stack area is used to store the partial results and data which will be needed while returning the value of the method.</li>
+                            <li class="num-list">A new Stack frame is created When a method invoke. 
+                                It destroys the stack frame when the method process completes.</li>
+                            <li class="num-list">Each frame contains own Local Variable Array (LVA).</li>
+                        </ol>
+                                          
+                    </p>
+
+                    <h2><i class="arrow right"></i>What is Native method Stacks?</h2>
+                    <p>
+                        The <b>Native method Stack</b> is also known as C stack. A Native method Stack is created when a thread is created. 
+                    </p>
+                    
+                    <h2><i class="arrow right"></i>What is Garbage Collector?</h2>
+                    <p>
+                        The <b>Garbage collector</b> finds the unused objects and deletes them to free up memory.
+                        When Java programs run on the JVM, objects are created on the heap, after execution, some objects will no longer be needed.
+                         The garbage collector finds these unused objects and deletes them to free up memory.
+                    </p>
+
+                    <h2><i class="arrow right"></i>How to call Garbage Collector manually?</h2>
+                    <p>
+                        We can execute <b>System.gc()</b>.
+                    </p>
                 
                     <h2><i class="arrow right"></i>What is Stack Overflow Error?</h2>
                     <p>When ever stack memeory is out of space space that time we get the Stack Overflow Error.
@@ -382,7 +490,180 @@ Output:
                             <li class="num-list"><b>-Xms</b> to set the maximum heap size</li>
                         </ol>
                     </p>
-                
+
+                    -XX:PermGen
+                    <h2><i class="arrow right"></i>What is PermGen Space?</h2>
+                    <p>PermGen stands for Permanent Generation. Java 8 and above has no PermGen space. 
+                        From Java 8 PermGen was replaced by a new memory area called Metaspace.
+                          It is also a type of heap space.
+                        JVM uses PermGen to keep track of loaded class metadata which are not changed 
+                        frequently.
+                        
+                        <ol class="pt-0">
+                            <li class="num-list">-XX:PermGen - For setting the initial size of the Permanent Generation memory.</li>
+                            <li class="num-list">-XX:MaxPermGen - For setting the maximum size of Perm Gen.</li>
+                        </ol>
+                    </p>
+
+
+                    <h2><i class="arrow right"></i>What is Metaspace?</h2>
+                    <p>
+                        MetaSpace is introduceed in Java 8 to replace the PermGen space. The MetaSpace is used 
+                        to hold class metadata and the size dynamically resize based on the application’s demands.
+                        <ol class="pt-0">
+                            <li class="num-list">JMX (Java Management Extensions) is used to see the utilization of Metaspace.</li>
+                            <li class="num-list">-XX:Meta SpaceSize &XX: MaxMeta SpaceSize is used to customization the size of Metaspace.</li>
+                        </ol>
+                    </p>
+                    
+                    <h2><i class="arrow right"></i>How Metaspace Works?</h2>
+                    <p>When new class is loaded, the JVM identified the class defination and extracts metadata about the class,
+                         including as its name, parent class, interfaces implemented, fields and 
+                         methods. Subsequently, JVM allocates memory in the MetaSpace for the class’s metadata.
+                    </p>
+                    <p>
+                        JVM tracks the MetaSpace’s size as well as the amount of memory utilised by 
+                        each class’s information. If the MetaSpace exceeds the allocated space, 
+                        JVM checks which metadata is no longer is use and start the process of 
+                        Garbage Collection to clear up space.                        
+                    </p>
+                    <p>
+                        If a class is no longer is used or the JVM shuts down, 
+                        the metadata in the MetaSpace will clean up immediately.
+                    </p>
+
+
+                    <h2><i class="arrow right"></i>How to check Metaspace memory size in Java program?</h2>
+                    <p>
+<pre><code>import java.lang.management.MemoryUsage;
+public class MetaSpaceExample {
+    public static void main(String args[]) {
+        MemoryUsage memory = ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage();
+
+        long usedMetaspace = memory.getUsed();
+        long maxMetaspace = memory.getMax();
+
+        System.out.println( "usedMetaspace="+usedMetaspace );
+        System.out.println( "maxMetaspace="+maxMetaspace );
+
+    }
+}</code></pre>
+                    </p>
+
+                    
+                    <h2><i class="arrow right"></i>How to see Metaspace memory sizes?</h2>
+                    <p>
+<pre><code>java -XX:+PrintFlagsFinal -version | grep MetaspaceSize</code></pre>
+                    </p>
+                    <h2><i class="arrow right"></i>How to increase Metaspace memory size?</h2>
+                    <p>
+<pre><code>-XX:MetaspaceSize=100M</code></pre>                        
+                    </p>
+
+                    <h2><i class="arrow right"></i>What is difference between Comparable and Comparator Interface in Java?</h2>
+                <h3>Comparable</h3>
+                <p><ol class="pt-0">
+                        <li>The <b>Comparable</b> compares itself with another object.</li>
+                        <li>The class itself must implements the java.lang.Comparable interface to compare its instances.</li>
+                        <li>Need to override the  compareTo() method in the class itself.</li>
+                    </ol>
+                </p>
+                <h3>Comparator</h3>
+                <p><ol class="pt-0">
+                        <li>The <b>Comparator</b> provides multiple sorting sequences.</li>
+                        <li>You can sort the collection on the basis of multiple elements 
+                            such as id, name, age and city etc..</li>
+                        <li>Comparator doesn't affect the original class. The actual class is not modified.</li>
+                        <li>Comparator has compare() method to sort elements.</li>
+                        
+                    </ol>
+                </p>
+
+                <h2><i class="arrow right"></i>Example of Comparable in Java?</h2>
+                <p>
+<pre><code>public class ComparableExample implements Comparable<</code><code>ComparableExample>{
+ private Integer id;
+ private String name;
+ private String email;
+ private Integer age;
+
+
+ @Override
+ <span class="red">//Override compareTo method</span>
+ public int compareTo(ComparableExample obj) {
+    if(age==obj.age)
+        return 0;
+    else if(age>obj.age)
+        return 1;
+    else
+        return -1;
+  }
+ }  </code></pre>
+
+                </p>
+
+
+                <h2><i class="arrow right"></i>Example of Comparator in Java?</h2>
+                <p>
+<pre><code>import java.util.Comparator;
+public class Employee {
+    private Integer id;
+    private String name;
+    private String email;
+    private Integer age;
+    
+    public Employee(Integer id, String name, String email, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+    
+    public Integer getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public Integer getAge() {
+        return age;
+    }
+}
+<span class="red">//Seperate class need to create</span>
+class DemoComtarorExample implements Comparator<</code><code>Employee> {
+    @Override
+    <span class="red">//Override the compare method</span>
+    public int compare(Employee obj1, Employee obj2) {
+        if(obj1.getAge() == obj2.getAge())
+            return 0;
+        else if(obj1.getAge() > obj2.getAge())
+            return 1;
+        else
+            return -1;
+    }
+} </code></pre>
+
+                </p>
+
+
+                <h2><i class="arrow right"></i>What is Array in Java?</h2>
+                <p>
+                    An array is a container object that holds a fixed number of values of a single type.
+<pre><code>public static void main(String[] args) throws IOException {
+    Integer[] array = new Integer[3];
+    array[0]=3;
+    array[1]=4;
+    array[2]=5;
+    <span class="red">or</span>
+    Integer[] array1 = {3,4,5};
+}
+</code></pre>
+                </p>
+
+                        
                     <div class="col-sm-12 col-md-12 bottom-add">
                 
                 </div> 

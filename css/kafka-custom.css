@@ -673,3 +673,7 @@ li.next-botton{
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+.f15{
+	    font-size: 15px !important;
+}
