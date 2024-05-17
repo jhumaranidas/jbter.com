@@ -677,3 +677,19 @@ li.next-botton{
 .f15{
 	    font-size: 15px !important;
 }
+
+.print{
+position: fixed;
+    top: 3px;
+    /* right: 50px; */
+    background: #D6DBDF;
+    border: 1px solid #2E4053;
+}
+
+.download{
+	position: fixed;
+    top: 3px;
+     right: 50px;
+    background: #D6DBDF;
+    border: 1px solid #2E4053;
+}
