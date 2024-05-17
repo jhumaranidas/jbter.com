@@ -56,13 +56,16 @@
         <script> 
             function printDiv() { 
                 var divContents = document.getElementById("right-main-div").innerHTML; 
-                var a = window.open('', '', 'height=500, width=500'); 
+                var a = window.open('', '', ''); 
                 a.document.write('<html>'); 
-                a.document.write('<body > <h1>Div contents are <br>'); 
+                a.document.write('<body ><b>https://jbter.com/java-interview-questions-answer-for-experience</b>'); 
                 a.document.write(divContents); 
                 a.document.write('</body></html>'); 
                 a.document.close(); 
-                a.print(); 
+                setTimeout(function () {
+                    a.print();
+                }, 600);
+                 
             } 
         </script>
     </head>
@@ -234,18 +237,14 @@
             <div id="right-main-div">
                 <div class="col-md-9 col-lg-9 col-xl-9 col-sm-12 left-main-div" id="left-main-div">
                    <div class="row">
-                    <div class="col-md-11 col-lg-11 col-xl-11 col-sm-11">
-                        <h1>Java Interview Question Answer for Experience</h1>  
-                    </div>
+                        <div class="col-md-11 col-lg-11 col-xl-11 col-sm-11">
+                            <h1>Java Interview Question Answer for Experience</h1>  
+                        </div>
                 
-                    <div class="col-md-1 col-lg-1 col-xl-1 col-sm-1" style="padding:0px;">
-                        <button class="print" onclick="printDiv()"><i class="fa fa-print" aria-hidden="true"></i>Print</button>
-                       
-                        
-                    </input>
-                       
+                        <div class="col-md-1 col-lg-1 col-xl-1 col-sm-1" style="padding:0px;">
+                            <button class="print" onclick="printDiv()"><i class="fa fa-print" aria-hidden="true"></i>Print</button>
+                        </div>
                     </div>
-                </div>
                     <h2><i class="arrow right"></i>How many types of Operations in Java Stream?</h2>
                     <p>
                         There are mainly 3 types of operations.
